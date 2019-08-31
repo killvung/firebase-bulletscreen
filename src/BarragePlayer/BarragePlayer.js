@@ -1,3 +1,5 @@
+// Bullet screen reference: https://programming.vip/docs/html-uses-canvas-to-realize-bullet-screen-function.html
+
 import React, { useState, useRef, useEffect } from 'react';
 import Barrage from './Barrage.js';
 
