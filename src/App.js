@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import BarragePlayer from './BarragePlayer/BarragePlayer.js';
+
 function App() {
   return (
     <div className="App">
@@ -10,6 +12,7 @@ function App() {
         <p>
           {'You ever seen a bullet screen? Maybe...'}
         </p>
+        <BarragePlayer />
         <a
           className="App-link"
           href="https://reactjs.org"
