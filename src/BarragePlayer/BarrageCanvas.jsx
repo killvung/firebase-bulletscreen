@@ -33,7 +33,7 @@ function BarrageCanvas({ barrages, removeBarrage, addBarrage }) {
         performBarrageAnimation();
       }
     }, 20);
-    canvasElement.current.getContext('2d').left = '25px DengXian';
+    canvasElement.current.getContext('2d').font = '25px DengXian';
   });
 
   const handleClick = () => {
