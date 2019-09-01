@@ -1,18 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import BarragePlayer from './BarragePlayer/BarragePlayer';
+import BarrageManager from './BarragePlayer/BarrageManager';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {'You ever seen a bullet screen? Maybe...'}
-        </p>
-        <BarragePlayer />
+        <p>You ever seen a bullet screen?</p>
+        <BarrageManager />
       </header>
     </div>
   );
