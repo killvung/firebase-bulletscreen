@@ -1,25 +1,32 @@
 // Bullet screen reference: https://programming.vip/docs/html-uses-canvas-to-realize-bullet-screen-function.html
-import React, { Fragment, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './BarrageCanvas.css';
 import Barrage from './Barrage';
 
+import testData from './testData.json'
+
 function BarrageCanvas({ barrages, removeBarrage, addBarrage }) {
   const canvasElement = useRef(null);
   useEffect(() => {
+    const { height, width } = canvasElement.current;
     const activateBarrage = (barrage) => {
-      if (barrage.left < -200) {
+      if (barrage.left < -9001) {
         removeBarrage(barrage);
       } else {
         const canvasContext = canvasElement.current.getContext('2d');
         barrage.moveLeft();
-        canvasContext.fillStyle = barrage.color;
+        const gradient = canvasContext.createLinearGradient(0, 0, width, 0);
+        gradient.addColorStop("0", " magenta");
+        gradient.addColorStop("0.5", "blue");
+        gradient.addColorStop("1.0", "red");
+        canvasContext.fillStyle = gradient;
         canvasContext.fillText(barrage.content, barrage.left, barrage.height);
         canvasContext.restore();
       }
     };
 
-    const { height, width } = canvasElement.current;
+
     const performBarrageAnimation = () => {
       const context = canvasElement.current.getContext('2d');
       context.clearRect(0, 0, width, height);
@@ -34,13 +41,17 @@ function BarrageCanvas({ barrages, removeBarrage, addBarrage }) {
         performBarrageAnimation();
       }
     }, 20);
-    canvasElement.current.getContext('2d').font = '25px DengXian';
+
+    setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * testData.length);
+      const text = testData[randomIndex];
+      addBarrage(new Barrage(text, '#FFFFFF', 2, 900, 675));
+    }, 3000);
+    canvasElement.current.getContext('2d').font = 'bold 25px DengXian';
   });
 
   return (
-    <Fragment className="BarrageCanvas___root">
-      <canvas className="BarrageCanvas___element" width="900px" height="675px" ref={canvasElement} />
-    </Fragment>
+    <canvas className="BarrageCanvas___element" width="900px" height="675px" ref={canvasElement} />
   );
 }
 
