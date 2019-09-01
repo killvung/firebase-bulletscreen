@@ -21,7 +21,7 @@ export default function BarrageManager() {
     <div className="BarrageManage__root">
       <div className="BarrageManage__wrapper">
         <BarrageCanvas barrages={barrages} removeBarrage={removeBarrage} addBarrage={addBarrage} />
-        <ReactPlayer width="900px" height="675px" playing />
+        <ReactPlayer width="900px" height="675px" playing url="https://www.youtube.com/watch?v=D0nEDS6wd-w&feature=youtu.be"/>
       </div>
     </div>
   );
