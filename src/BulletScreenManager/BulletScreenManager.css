@@ -1,8 +1,12 @@
-.BarrageManage__wrapper {
+.BarrageManager__wrapper {
     position: relative;
     display: block;
 }
 
 .BarrageManager__video {
     z-index: 0;
+}
+
+.BarrageManager__input {
+    width: 900px
 }

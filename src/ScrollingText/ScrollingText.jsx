@@ -3,7 +3,7 @@ import React from 'react';
 import './ScrollingText.css';
 
 export default ({ text }) => (
-    <div class="ScrollingText__wrapper">
+    <div className="ScrollingText__wrapper">
         <p>{text}</p>
     </div>
 );
