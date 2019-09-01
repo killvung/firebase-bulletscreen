@@ -2,15 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import BarrageManager from './BarragePlayer/BarrageManager';
+import BarrageManager from './BarrageManager/BarrageManager';
+import ScrollingText from './ScrollingText/ScrollingText';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />
         <p>{'You ever seen a bullet screen?'}</p>
-        <p>{'While the video is playing, comments from the video fly from\nthe right side of the screen to the left side of the screen'}</p>
+        <ScrollingText text={'While the video is playing, comments from the video fly from\nthe right side of the screen to the left side of the screen'} />
       </header>
       <div className="App__wrapper container">
         <BarrageManager />
