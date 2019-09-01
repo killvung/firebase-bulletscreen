@@ -11,4 +11,8 @@ export default class Barrage {
   moveLeft() {
     this.left = this.left - this.speed;
   }
+
+  hasReachedToEdge(){
+    return this.left < -9001; // TODO: Determine a better ratio
+  }
 }

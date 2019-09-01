@@ -11,16 +11,16 @@ function BarrageCanvas({ barrages, removeBarrage, addBarrage }) {
   useEffect(() => {
     const { height, width } = canvasElement.current;
     const activateBarrage = (barrage) => {
-      if (barrage.left < -9001) {
+      if (barrage.hasReachedToEdge()) {
         removeBarrage(barrage);
       } else {
         const canvasContext = canvasElement.current.getContext('2d');
-        barrage.moveLeft();
         const gradient = canvasContext.createLinearGradient(0, 0, width, 0);
         gradient.addColorStop("0", " magenta");
         gradient.addColorStop("0.5", "blue");
         gradient.addColorStop("1.0", "red");
         canvasContext.fillStyle = gradient;
+        barrage.moveLeft();
         canvasContext.fillText(barrage.content, barrage.left, barrage.height);
         canvasContext.restore();
       }
