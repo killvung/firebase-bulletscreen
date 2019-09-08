@@ -23,7 +23,8 @@ export default function BulletScreenManager() {
 
   const handleInputGenerateClick = () => {
     setVideoUrl(videoInputRef.current.inputRef.current.value);
-    setCommentsFetched(true);
+
+    document.getElementById("VideoPlayer__wrapper").scrollIntoView()
   }
 
   const renderBarrageCanvas = () => (
@@ -32,8 +33,14 @@ export default function BulletScreenManager() {
       <div>{''}</div>
   )
 
+  const handleOnProgress = ({ played }) => {
+    if (played > 0) {
+      setCommentsFetched(true);
+    }
+  }
+
   const renderVideo = () => (
-    <ReactPlayer width="900px" height="675px" playing url={videoUrl} />
+    <div id="VideoPlayer__wrapper"><ReactPlayer onProgress={handleOnProgress} width="900px" height="675px" playing url={videoUrl} /></div>
   )
 
   return (

@@ -15,13 +15,11 @@ function BarrageCanvas({ barrages, removeBarrage, addBarrage }) {
         removeBarrage(barrage);
       } else {
         const canvasContext = canvasElement.current.getContext('2d');
-        const gradient = canvasContext.createLinearGradient(0, 0, width, 0);
-        gradient.addColorStop("0", " magenta");
-        gradient.addColorStop("0.5", "blue");
-        gradient.addColorStop("1.0", "red");
-        canvasContext.fillStyle = gradient;
+        canvasContext.fillStyle = 'white';
+        canvasContext.strokeStyle = 'black';
         barrage.moveLeft();
         canvasContext.fillText(barrage.content, barrage.left, barrage.height);
+        canvasContext.strokeText(barrage.content, barrage.left, barrage.height);
         canvasContext.restore();
       }
     };
@@ -47,7 +45,7 @@ function BarrageCanvas({ barrages, removeBarrage, addBarrage }) {
       const text = testData[randomIndex];
       addBarrage(new Barrage(text, '#FFFFFF', 2, 900, 675));
     }, 3000);
-    canvasElement.current.getContext('2d').font = 'bold 25px DengXian';
+    canvasElement.current.getContext('2d').font = 'bold 35px DengXian';
   });
 
   return (

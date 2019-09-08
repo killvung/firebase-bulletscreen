@@ -2,8 +2,8 @@
 import React from 'react';
 import './ScrollingText.css';
 
-export default ({ text }) => (
+export default ({ children }) => (
     <div className="ScrollingText__wrapper">
-        <p>{text}</p>
+        {children}
     </div>
 );
