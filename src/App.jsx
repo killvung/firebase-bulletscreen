@@ -16,6 +16,7 @@ function App() {
           <Header size="huge">{'Bullet Screen Generator'}</Header>
         </ScrollingText>
         <p>{'A simple experiment to turn comments into flying bullets across the video'}</p>
+        <p>{'to test the phenomom in China and Japan'}</p>
         <div className="ImageExamples__root">
           <div>Example 01: </div>
           <Image size='large' rounded src='example.jpg' />
